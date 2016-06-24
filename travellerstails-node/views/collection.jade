@@ -1,0 +1,23 @@
+extends layout
+	
+append headline
+	span#title  #{collection.name) collection
+
+block content
+	#filelist
+		p #{images.length} images
+		br
+
+		ul
+			each image in images
+				.imageListing
+					a(href = "/tagger/#{image.source}/#{encodeURIComponent(image.id)}") #{image.id} : #{image.source_id} : #{image.image}
+					ul.listtags
+						- var last = image.tags.length - 1
+						each tag, i in image.tags
+							li
+								a(href="/tag/#{tag}")= tag
+							if i < last
+								| , 
+						li
+							a(href = "/tagger/#{image.source}/#{encodeURIComponent(image.id)}") +

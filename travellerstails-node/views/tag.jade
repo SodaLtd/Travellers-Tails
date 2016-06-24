@@ -1,0 +1,18 @@
+extends layout
+
+append headline
+	span#title tag #{tag.tag}
+
+block content
+	each tagging in tag.taggings
+		- var collectionID = tagging[0]
+		- var fileID = tagging[1]
+		- var encodedFileID = encodeURIComponent(fileID)
+		- var fullImagePath = "/image/" + collectionID + "/" + encodedFileID
+		- var reducedImagePath = "/image/" + collectionID + "/" + encodedFileID
+		
+		.listPic
+			a(href="#{fullImagePath}")
+				img(src="#{reducedImagePath}", title="#{collectionID + ' ' + fileID}")
+		a(href = "/collection/#{collectionID}") #{collectionID} 
+		a(href = "/tagger/#{collectionID}/#{encodedFileID}") #{fileID}

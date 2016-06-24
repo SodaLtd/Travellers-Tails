@@ -1,0 +1,15 @@
+extends layout
+
+append head
+	script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+	script(src="/javascripts/taglet.js")
+	script(src="/javascripts/sda.js")
+	script(src="/javascripts/sda.filereader.js")
+	
+block content
+	if unknown
+		h3 unknown user - please try again
+	else
+		h3 update tags
+
+	textarea#globaltags(placeholder="enter tags")

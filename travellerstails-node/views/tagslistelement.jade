@@ -1,0 +1,8 @@
+ul
+	- var last = image.tags.length - 1
+	each tag, i in image.tags
+		li.unpick= tag
+		if i < last
+			| , 
+	else
+		.help this image has no tags

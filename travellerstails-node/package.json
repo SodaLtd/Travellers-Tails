@@ -1,0 +1,47 @@
+{
+  "name": "travellerstails",
+  "version": "1.0.0",
+  "description": "TravellersTails CMS",
+  "keywords": [
+    "OpenShift",
+    "Node.js",
+    "application",
+    "openshift",
+    "TravellersTails"
+  ],
+  "author": {
+    "name": "OpenShift",
+    "email": "ramr@example.org",
+    "url": "http://soda.co.uk/"
+  },
+  "homepage": "http://soda.co.uk/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openshift/origin-server"
+  },
+
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+
+  "dependencies": {
+    "body-parser": "~1.12.0",
+    "cookie-parser": "~1.3.4",
+    "debug": "~2.1.1",
+    "express": "~4.12.2",
+    "jade": "~1.9.2",
+    "morgan": "~1.5.1",
+    "serve-favicon": "~2.2.0",
+    "mongodb": "*",
+    "monk": "*",
+    "request": "*",
+    "stylus": "*",
+    "async": "*"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+
+  "private": true,
+  "main": "./bin/www"
+}

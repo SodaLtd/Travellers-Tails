@@ -1,0 +1,21 @@
+doctype html
+html(lang="en-UK")
+	head
+		block head
+			title= title
+			link(rel="stylesheet", href="/stylesheets/taglet.css")
+	body
+		h1
+			block headline
+				a.title(href="/") taglet
+				span#version v0.1 
+		block content
+		
+		if user
+			br
+			br
+			a.signout(href="/signin") &#187; sign out
+				
+		//- just for debugging	
+		if message
+			#message: pre= message

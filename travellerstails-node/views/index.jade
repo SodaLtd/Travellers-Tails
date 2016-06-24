@@ -1,0 +1,12 @@
+extends layout
+	
+block content
+	ul.collectionlisting
+		each collectionID in collectionIDs
+			li
+				- var collection = collections[collectionID]
+				a(href = "/collection/#{collectionID}") #{collection.name}
+	
+	br
+	.collectionlisting
+		a(href = "/tags") all tags

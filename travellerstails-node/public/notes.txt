@@ -1,0 +1,60 @@
+Database
+========
+
+mongodb with monk middleware
+	db = monk('localhost:27017/taglet'),
+
+users
+	{'user': user}
+
+collections - presently hardcoded into index.js
+	{'collection': collection, 'name': name, 'sources': [sourceDropboxPath*]},
+
+resources
+	{'fileID': fileID, 'filename': filename, 'path': path, 'collectionID': collectionID, 'name': nameIfKnown, 'tags': [tag*], 'meta': unalteredMetadataDictionaryOrNull, 'dropboxMeta': dropoxFileMetadataDictionary}
+
+	where..
+	
+	fileID is id string eg NON690
+		(currently expected to be filename without extension) - keeping this separate from db id as might not be unique between collections
+	filename - eg NON690.png
+	path - path (forward-slash style) eg GRANT/standardised-images/ relative to content root (Travellers\ Tails/CONTENT at present)
+		(path can be used to group like resources)
+	collectionID - one of ['cook', 'grant', 'horniman', 'hunterian', 'nmm']
+	tags - array of strings (empty array if not tagged yet)
+	name - presentation name/mini-description if available (make fileID if name unavailable?)
+
+tags
+	{'tag': tagText, 'taggings' [[collection, fileID, user]*]}
+
+The resources collection & the tags collection are two ways of storing pretty-much the same stuff (ie not normalised)
+The exception is that tags that are not attached to any images are only listed in the tags collection
+
+Could break resources into individual mongodb collections - cook, grant, .. if no common tagging or cross-talk wanted?
+
+Site
+====
+
+/ - links to collection pages and to a page showing all tags
+/signin
+/tags - list of all tags, with the items that they tag listed for each one
+/collection/<collectionID> - list of resources in a single collection showing their tags
+/tagger/<collectionID>/<fileID> - the main page for viewing & adding tags
+/tag/<tagText> - page showing all images associated with this tag
+/image/<sizeCode>/<collectionID>/<fileID>
+
+In /tagger/...
+Add a tag by typing into add box and pressing return
+Pick a tag by clicking on it in the pick list (it reduces if you start typing a prefix into the add box)
+Remove a tag by clicking on it in the tags list
+
+<sizeCode> is xs, s, m, l, or xl (as dropbox) - all others eg 'full' imply full size image
+
+Unlinked pages:
+
+/unused - to become means to delete unused tags?
+/notes.txt - this file
+/robots.txt
+
+/parseGrant - to read soda file grant.data and insert into resources & tags
+/scan/<collectionID> - to insert resources based on reading source folders

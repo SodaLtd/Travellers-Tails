@@ -1,0 +1,13 @@
+extends layout
+	
+block content
+	if unknown
+		h3 unknown user - please try again
+	else
+		h3 sign in
+
+	form.signin(method="POST")
+		input(type="text" size="40" placeholder="type your taglet access name" name="user")
+		input(type="hidden" name="to" value="#{referrer}")
+		br
+		input(type="submit" value="sign in")

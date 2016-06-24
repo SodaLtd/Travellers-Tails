@@ -1,0 +1,163 @@
+backgroundColour = #248
+bodyColour = #ccd
+titleColour = #eee
+linkColour = #ffe
+linkHoverColour = #fe5
+tagBackColour = #666
+tagColour = #eea
+pickTagHoverColour = #3f5
+removeTagHoverColour = #f41
+removedColor = #c41
+helpColour = #888
+signoutColour = #ccd
+
+html
+	padding 0
+	border 0
+	margin 0
+	background-color backgroundColour
+	color bodyColour
+
+body
+	font 90% "Lucida Grande", Helvetica, Arial, sans-serif
+	font-weight normal
+	width 80vw
+	padding 0
+	border 0
+	margin 0 10vw 
+
+a
+	text-decoration none
+	color linkColour
+	
+a:link
+	text-decoration none
+	color linkColour
+	
+a:hover, a:focus
+	text-decoration none
+	color linkHoverColour
+
+h1
+	font-weight bold
+	margin 1vh 0
+
+h2
+	margin 1vh 0
+	
+h3
+	margin 0.5vh 0
+
+p
+	font-weight normal
+	margin 0.5vh 0
+
+ul
+	padding 0
+	border 0
+	margin 0
+
+li
+	padding 0
+	border 0
+	margin 0
+	list-style-type none
+
+#version
+	font-size 0.3em
+	margin-right 1em
+	
+.title
+	font-size 0.8em
+	margin 1vh 0 
+	color titleColour
+	
+#filelist
+	margin 0.5vh 0
+
+.pic img
+	display block
+	margin auto
+	max-height 50vh
+	max-width 80vw
+	
+.listPic img
+	display block
+	margin 2em auto 0.5em auto
+	max-height 40vh
+	max-width 80vw	
+	
+#addtags
+	background-color tagBackColour
+	color tagColour
+	margin 0
+	min-height 2.5em
+
+#picktags
+	background-color tagBackColour
+	color tagColour
+	margin 0 
+	height 10vh
+	overflow scroll
+
+#picktags li
+	display inline
+	
+#picktags li.hide
+	display none
+	
+#picktags li:hover
+	color pickTagHoverColour
+	
+#picktags li.removed
+	color removedColour
+
+.hide
+	display none
+
+#listtags
+	color tagColour
+	margin 0
+
+#listtags li
+	display inline
+
+#listtags li:hover
+	color removeTagHoverColour
+	
+.imageListing .listtags, .taggings
+	margin-left 2em
+	
+.imageListing, .tagListing
+	font-size 0.9em
+	margin 1em 0
+
+.listtags
+	color tagColour
+
+.listtags li
+	display inline
+	
+.collectionlisting
+	font-weight bold
+	font-size 1.4em
+	margin 2em 0
+	
+.collectionlisting li
+	margin 1em 0
+
+.help
+	color helpColour
+	
+.signin
+	margin 1em 0
+	
+.signin input
+	margin 1em 0
+	
+.signout
+	color signoutColour
+
+// just for debugging
+#message
+	font 1em monospace

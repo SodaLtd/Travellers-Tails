@@ -1,0 +1,48 @@
+extends layout
+
+append head
+	script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+	script(src="/javascripts/taglet.js")
+	
+append headline
+	span.title
+		- var filepath = "/image/l/" + encodeURIComponent(image.source) + "/" + encodeURIComponent(image.id)
+		a(href="/collection/#{encodeURIComponent(image.source)}") #{image.source)
+		| : 
+		a(href="#{filepath}") #{image.id}
+
+block content
+	.pic
+		//- - var encodedFileID = encodeURIComponent(image.fileID)
+		//- - var fullImagePath = "/image/full/" + image.collectionID + "/" + encodedFileID
+		//- - var reducedImagePath = "/image/l/" + image.collectionID + "/" + encodedFileID
+		//- a(href="#{fullImagePath}")
+		//-	img(src="#{reducedImagePath}", title="#{image.filename}")
+		- var imagePath = "/image/" + image.source + "/" + image.id
+		img(src="#{imagePath}", title="#{image.name}")
+	
+	h3 name
+	#name(contenteditable=true) #{image.name}
+			
+	h3 tags
+	#listtags
+		include ./tagslistelement.jade
+	h3: a#removealltags(href='#') remove all
+
+	h3 add
+	#addtags(contenteditable=true)
+	
+	h3 pick
+	#picktags
+		ul
+			- var last = picktags.length - 1
+			each tag, i in picktags
+				li.pick= tag.tag
+				if i < last
+					span.comma , 
+
+	#message: pre= message
+	
+	if next
+		//- h3: a(href="/tagger/#{next.collectionID}/#{encodeURIComponent(next.fileID)}") &#187; next
+		h3: a(href="/tagger/#{next.source}/#{encodeURIComponent(next.id)}") &#187; next

@@ -1,0 +1,21 @@
+extends layout
+	
+append headline
+	span#title  all tags
+
+block content
+	#filelist
+		p #{tags.length} tags
+		br
+		
+		ul
+			each tag in tags
+				.tagListing
+					a(href="/tag/#{encodeURIComponent(tag.tag)}") #{tag.tag}
+					ul.taggings
+						each tagging in tag.taggings
+							- var collectionID = tagging[0]
+							- var fileID = tagging[1]
+							li
+								a(href="/collection/#{collectionID}") #{collectionID} 
+								a(href="/tagger/#{collectionID}/#{encodeURIComponent(fileID)}") #{fileID}
